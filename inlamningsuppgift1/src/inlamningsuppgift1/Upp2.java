@@ -8,6 +8,7 @@ package inlamningsuppgift1;
 
 import javax.swing.JOptionPane;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * @author William Leven
@@ -19,18 +20,20 @@ public class Upp2 {
     public static void main(String[] args) {
         
         //seting up variable(s)
-        String[] words = new String[5];
+        ArrayList words = new ArrayList();
+        int i = 0;
         
-        for (int i=0; i<words.length; i++) {
+        while (true) {
             // geting input from user
-            words[i] = JOptionPane.showInputDialog("Skriv in ord nr. " + (i+1));
+            words.add(JOptionPane.showInputDialog("Skriv in ord nr. " + (words.size()+1)));
             //printing out "words"
             JOptionPane.showMessageDialog(null, Arrays.asList(words), "Dina Ord", JOptionPane.PLAIN_MESSAGE);
+            //making sure the program doesnt overwrite the prev value
+            i ++;
         }
         
         /** ToDo:
          * 
-         * print out the array as one word
          */
     }
     
