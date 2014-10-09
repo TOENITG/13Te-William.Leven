@@ -30,8 +30,10 @@ public class Upp2 {
             JOptionPane.showMessageDialog(null, Arrays.asList(words), "Dina Ord", JOptionPane.PLAIN_MESSAGE);
             //making sure the program doesnt overwrite the prev value
             i ++;
+            if (== true)
+                System.exit(0);
         }
-        
+        // stop memory leaks
         /** ToDo:
          * 
          */

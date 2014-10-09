@@ -72,6 +72,8 @@ public class Upp1 {
         // Sending message to user
         JOptionPane.showMessageDialog(null, "Välkommen " + Name + ", då du fyller den " + BirthDate_day + " " + BirthDate_month_result + " kommer vi komma till dig på " + Adress + " och fira dig.", "automatiskt meddelande", JOptionPane.PLAIN_MESSAGE);
         
+        // stop memory leaks
+        System.exit(0);
     }
     
 }
