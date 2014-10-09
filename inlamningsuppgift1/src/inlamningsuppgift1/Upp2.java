@@ -14,7 +14,12 @@ package inlamningsuppgift1;
 public class Upp2 {
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        /** ToDo:
+         * get 5 user input trough loop and store them in array
+         * 
+         * print out the array as one word
+         */
     }
     
 }
