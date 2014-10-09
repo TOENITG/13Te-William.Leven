@@ -7,6 +7,7 @@
 package inlamningsuppgift1;
 
 import javax.swing.JOptionPane;
+import java.util.Arrays;
 
 /**
  * @author William Leven
@@ -20,12 +21,14 @@ public class Upp2 {
         //seting up variable(s)
         String[] words = new String[5];
         
-        // geting input from user
         for (int i=0; i<words.length; i++) {
-            words[i] = JOptionPane.showInputDialog("Skriv in ord nr. " + i+1);
+            // geting input from user
+            words[i] = JOptionPane.showInputDialog("Skriv in ord nr. " + (i+1));
+            //printing out "words"
+            JOptionPane.showMessageDialog(null, Arrays.asList(words), "Dina Ord", JOptionPane.PLAIN_MESSAGE);
         }
+        
         /** ToDo:
-         * get 5 user input trough loop and store them in array
          * 
          * print out the array as one word
          */
