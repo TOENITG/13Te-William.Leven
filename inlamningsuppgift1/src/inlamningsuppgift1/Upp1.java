@@ -24,12 +24,9 @@ public class Upp1 {
         // Extracting birth date from SocNumber
         String BirthDate = SocNumber.trim().substring(2, 6);
         
+        // Sending message to user
+        JOptionPane.showMessageDialog(null, "Välkommen " + Name + ", då du fyller den " + BirthDate + " kommer vi komma till dig på " + Adress + " och fira dig.", "automatiskt meddelande", JOptionPane.PLAIN_MESSAGE);
         /** TODO
-         * 
-         * Skriv ut:
-         * Välkommen <Namn>, då du fyller den <födelsedagen> kommer vi komma till dig, <Address> och fira dig. Detta är ett automatiskt meddelande.
-         * 
-         * 
          * 
          */
     }
