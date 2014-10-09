@@ -17,9 +17,9 @@ public class Upp1 {
     public static void main(String[] args) {
         
         // Asking for I/O and storing in variables
-        String Name = JOptionPane.showInputDialog("Namn","Skriv ditt namn");
-        String SocNumber = JOptionPane.showInputDialog("xxxxxx-xxxx","Skriv ditt personnummer");
-        String Adress = JOptionPane.showInputDialog("Exempelvägen xx","Skriv din adress");
+        String Name = JOptionPane.showInputDialog("Skriv ditt namn", "Namn");
+        String SocNumber = JOptionPane.showInputDialog("Skriv ditt personnummer", "xxxxxx-xxxx");
+        String Adress = JOptionPane.showInputDialog("Skriv din adress", "Exempelvägen xx");
         
         // Extracting birth date from SocNumber
         String BirthDate = SocNumber.trim().substring(2, 6);
