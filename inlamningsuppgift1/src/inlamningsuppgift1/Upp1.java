@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 /**
  * @author William Leven
  * @teacher ToEn ITG
- * @version 1.0.0
+ * @version 1.0.0 2014-10-09 16:21
  */
 public class Upp1 {
 
@@ -25,7 +25,7 @@ public class Upp1 {
         String BirthDate_day = SocNumber.trim().substring(4, 6).replace("0", "");
         int BirthDate_month_int = Integer.parseInt(SocNumber.trim().substring(2, 4).replace("0", ""));
         
-        
+        // turning the month int to a string with the name of the month
         String BirthDate_month_result;
         switch (BirthDate_month_int) {
             case 1:
@@ -71,9 +71,7 @@ public class Upp1 {
         
         // Sending message to user
         JOptionPane.showMessageDialog(null, "Välkommen " + Name + ", då du fyller den " + BirthDate_day + " " + BirthDate_month_result + " kommer vi komma till dig på " + Adress + " och fira dig.", "automatiskt meddelande", JOptionPane.PLAIN_MESSAGE);
-        /** TODO
-         * 
-         */
+        
     }
     
 }
