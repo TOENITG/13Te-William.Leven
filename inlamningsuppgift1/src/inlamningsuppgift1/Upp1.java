@@ -6,6 +6,7 @@
 
 package inlamningsuppgift1;
 import javax.swing.JOptionPane;
+import java.text.DateFormatSymbols;
 
 /**
  * @author William Leven
@@ -26,48 +27,7 @@ public class Upp1 {
         int BirthDate_month_int = Integer.parseInt(SocNumber.trim().substring(2, 4).replace("0", ""));
         
         // turning the month int to a string with the name of the month
-        String BirthDate_month_result;
-        switch (BirthDate_month_int) {
-            case 1:
-                BirthDate_month_result = "januari";
-                break;
-            case 2:
-                BirthDate_month_result = "februari";
-                break;
-            case 3:
-                BirthDate_month_result = "mars";
-                break;
-            case 4:
-                BirthDate_month_result = "april";
-                break;
-            case 5:
-                BirthDate_month_result = "maj";
-                break;
-            case 6:
-                BirthDate_month_result = "juni";
-                break;
-            case 7:
-                BirthDate_month_result = "juli";
-                break;
-            case 8:
-                BirthDate_month_result = "augusti";
-                break;
-            case 9:
-                BirthDate_month_result = "september";
-                break;
-            case 10:
-                BirthDate_month_result = "oktober";
-                break;
-            case 11:
-                BirthDate_month_result = "november";
-                break;
-            case 12:
-                BirthDate_month_result = "december";
-                break;
-            default:
-                BirthDate_month_result = "Error 99999";
-                break;
-        }
+        String BirthDate_month_result = new DateFormatSymbols().getMonths()[BirthDate_month_int-1];
         
         // Sending message to user
         JOptionPane.showMessageDialog(null, "Välkommen " + Name + ", då du fyller den " + BirthDate_day + " " + BirthDate_month_result + " kommer vi komma till dig på " + Adress + " och fira dig.", "automatiskt meddelande", JOptionPane.PLAIN_MESSAGE);
