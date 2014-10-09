@@ -5,6 +5,7 @@
  */
 
 package inlamningsuppgift1;
+import javax.swing.JOptionPane;
 
 /**
  * @author William Leven
@@ -14,11 +15,14 @@ package inlamningsuppgift1;
 public class Upp1 {
 
     public static void main(String[] args) {
+        
+        // Asking for I/O and storing in variables
+        String Name = JOptionPane.showInputDialog("Namn","Skriv ditt namn");
+        String SocNumber = JOptionPane.showInputDialog("xxxxxx-xxxx","Skriv ditt personnummer");
+        String Adress = JOptionPane.showInputDialog("Exempelvägen xx","Skriv din adress");
+        
+        
         /** TODO
-         * fråga efter:
-         * - Namn
-         * - Personnummer
-         * - Adress
          * 
          * Hantera personnummret så att endast födersedagen skrivs ut
          * 
