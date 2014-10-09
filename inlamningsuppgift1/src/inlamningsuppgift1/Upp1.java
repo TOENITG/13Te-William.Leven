@@ -21,10 +21,10 @@ public class Upp1 {
         String SocNumber = JOptionPane.showInputDialog("xxxxxx-xxxx","Skriv ditt personnummer");
         String Adress = JOptionPane.showInputDialog("Exempelvägen xx","Skriv din adress");
         
+        // Extracting birth date from SocNumber
+        String BirthDate = SocNumber.trim().substring(2, 6);
         
         /** TODO
-         * 
-         * Hantera personnummret så att endast födersedagen skrivs ut
          * 
          * Skriv ut:
          * Välkommen <Namn>, då du fyller den <födelsedagen> kommer vi komma till dig, <Address> och fira dig. Detta är ett automatiskt meddelande.
