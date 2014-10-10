@@ -29,9 +29,10 @@ public class Upp2 {
             
             // Printing out "words"
             //- .toString is used to call all values from the array
-            JOptionPane.showMessageDialog(null, words.toString(), "Dina Ord", JOptionPane.PLAIN_MESSAGE);
+            //- .replace to remove the brackets
+            JOptionPane.showMessageDialog(null, words.toString().replace("[", "").replace("]", ""), "Dina Ord", JOptionPane.PLAIN_MESSAGE);
             
-            // Asking if the user wants to contingue in order to give a way out of the loop.
+            // Asking if the user wants to continue in order to give a way out of the loop.
             //- If answer is no "stop" will take the value of 1
             stop = JOptionPane.showConfirmDialog(null, "Vill du lägga till ett ord till?","Igen", JOptionPane.YES_NO_OPTION);
         }
