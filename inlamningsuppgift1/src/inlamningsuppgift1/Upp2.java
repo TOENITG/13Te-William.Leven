@@ -5,7 +5,6 @@
 package inlamningsuppgift1;
 
 import java.util.ArrayList;         // Dynamic Arrays (ArrayLists)
-import java.util.Arrays;            // Array handling (asList)
 import javax.swing.JOptionPane;     // Interactive panes (JOptionPanes)
 
 /**
@@ -29,8 +28,8 @@ public class Upp2 {
             words.add(JOptionPane.showInputDialog("Skriv in ord nr. " + (words.size()+1)));
             
             // Printing out "words"
-            //- Arrays.asList is used to call all values from the array
-            JOptionPane.showMessageDialog(null, Arrays.asList(words), "Dina Ord", JOptionPane.PLAIN_MESSAGE);
+            //- .toString is used to call all values from the array
+            JOptionPane.showMessageDialog(null, words.toString(), "Dina Ord", JOptionPane.PLAIN_MESSAGE);
             
             // Asking if the user wants to contingue in order to give a way out of the loop.
             //- If answer is no "stop" will take the value of 1
