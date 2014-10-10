@@ -29,8 +29,9 @@ public class Upp2 {
             
             // Printing out "words"
             //- .toString is used to call all values from the array
-            //- .replace to remove the brackets
-            JOptionPane.showMessageDialog(null, words.toString().replace("[", "").replace("]", ""), "Dina Ord", JOptionPane.PLAIN_MESSAGE);
+            //- .substring to remove the brackets in the beginning and the end
+            //- .length @words.toString().length() to get the total length of the string/array
+            JOptionPane.showMessageDialog(null, words.toString().substring(1, words.toString().length() - 1), "Dina Ord", JOptionPane.PLAIN_MESSAGE);
             
             // Asking if the user wants to continue in order to give a way out of the loop.
             //- If answer is no "stop" will take the value of 1
