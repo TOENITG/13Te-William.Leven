@@ -26,8 +26,8 @@ public class Upp1 {
         // - .substring extracts the desired letters
         // - .replace is used to remove any zeros
         // - Integer.parseInt converts the string to an int.
-        String BirthDate_day = SocNumber.trim().substring(4, 6).replace("0", "");
-        int BirthDate_month_int = Integer.parseInt(SocNumber.trim().substring(2, 4).replace("0", ""));
+        String BirthDate_day = SocNumber.trim().substring(4, 6);
+        int BirthDate_month_int = Integer.parseInt(SocNumber.trim().substring(2, 4));
         
         // Turning the month int to a string with the name of the month
         // - DateFormatSymbols().getMonths()[] convert the int to a string holding the month
