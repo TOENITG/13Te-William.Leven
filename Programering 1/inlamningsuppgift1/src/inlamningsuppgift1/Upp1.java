@@ -24,7 +24,6 @@ public class Upp1 {
         // Extracting birth date from SocNumber
         // - .trim is used to remmove any blanks
         // - .substring extracts the desired letters
-        // - .replace is used to remove any zeros
         // - Integer.parseInt converts the string to an int.
         String BirthDate_day = SocNumber.trim().substring(4, 6);
         int BirthDate_month_int = Integer.parseInt(SocNumber.trim().substring(2, 4));
