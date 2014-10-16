@@ -44,3 +44,12 @@ public class Upp2 {
     }
     
 }
+
+/*
+Tack!
+
+Återigen både fler tecken som är kommentarer än kod, men den är relevant, så det är bra.
+Koden i övrigt är elegant, minimalistisk och kort. Om klasser och metoder hade haft kortare namn, så hade du vunnit
+i klassen "Kortaste program som löser uppgiften" !
+
+*/

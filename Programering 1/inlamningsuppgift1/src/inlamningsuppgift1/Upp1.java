@@ -41,3 +41,12 @@ public class Upp1 {
     }
     
 }
+
+/*
+Tack!
+
+Vanligtvis brukar jag säga att det ska vara mer kod än kommentarer, men i detta fall gör jag ett undantag.
+Dina kommentarer är tydliga, relevanta och lätta att följa.
+Är verligen System.exit(0); nödvändig?
+
+*/
