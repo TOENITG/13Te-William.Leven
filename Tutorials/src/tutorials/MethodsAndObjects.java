@@ -3,7 +3,7 @@
  */
 
 package tutorials;
-
+import java.util.Scanner;
 /**
  * @author Willaim Leven "Gurgy"
  * @teacher ToEn ITG
@@ -11,24 +11,27 @@ package tutorials;
  */
 public class MethodsAndObjects {
     // a variable that can be used only in this class
-    private String Names;
+    private static String Names;
+    private static String ss;
         
     //constructor will be called whenever you make an object of the class
     //- Name is recived from the main class when building the object
-    MethodsAndObjects(String name) {
+    public void setname(String name) {
         Names = name;
         
         }
     
     // a methos that can be used outside of class and doest return a value(void).
     public void Say() {
-        System.out.println("Hi " + Names);
+        System.out.println("Hi " + Names + ", With birth date: " + ss);
     }
     
     //a method that extracts birth date from ss number
-    public String birth_date(String ss){
+    public void birth_date(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Whats your ss number?");
         
-        String temp = ss.substring(2, 6);
-        return temp;
+        ss = input.nextLine().substring(2, 6);
+        
     }
 }
