@@ -2,5 +2,12 @@
 /inlamningsuppgift1/build/
 /Tutorials/nbproject/private/
 /Tutorials/build/
+<<<<<<< HEAD
 /textfiles/nbproject/private/
 /textfiles/build/
+=======
+/Programering 1/uppg2/nbproject/private/
+/Programering 1/uppg2/build/
+/Tutorials/MyCalculator/nbproject/private/
+/Tutorials/MyCalculator/build/
+>>>>>>> origin/master
