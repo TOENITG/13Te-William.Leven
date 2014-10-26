@@ -2,7 +2,7 @@
  * No licence aplies
  */
 package uppg2;
-import java.util.Scanner; // used for user input
+import java.util.*; // used for user input
 
 /**
  * @author William Leven
@@ -47,12 +47,12 @@ public class On {
             
             try{ //error handling for phrasing errors
                 
-                Scanner scan = new Scanner(System.in);
+                Scanner scan = new Scanner(System.in);  //builds scanner inside of loop to clean stream
                 
                 temp = scan.nextDouble();
                 check = true; //tells the program that no errors were found
             }
-            catch (Exception e) {       //error message
+            catch (InputMismatchException e) {       //error message
                 
                 System.out.println("You didn't enter a number, remember to use , as comma!");
                 System.out.println("Try again:");
