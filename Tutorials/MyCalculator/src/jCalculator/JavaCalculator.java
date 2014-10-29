@@ -5,6 +5,8 @@
  */
 package jCalculator;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author william
@@ -393,7 +395,12 @@ public class JavaCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEqualsActionPerformed
 
     private void btnCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommaActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnComma.getText());
+        if (!txtDisplay.getText().contains(".")){
+            txtDisplay.setText(txtDisplay.getText() + btnComma.getText());
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "You can only have one comma in each entry!", "ERROR", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnCommaActionPerformed
 
     private void btnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtractActionPerformed
