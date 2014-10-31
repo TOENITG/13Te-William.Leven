@@ -1,3 +1,4 @@
+
 /*
  * No licence aplies
  */
@@ -35,7 +36,7 @@ public class On {
         
 
     }
-    static double input (String message, boolean zero_allowed){
+    static double input (String message, boolean zero_allowed){ //the sting for end of message and the bool to check if zeros should be allowed.
         
         System.out.println("Please enter a number to " + message);
         
