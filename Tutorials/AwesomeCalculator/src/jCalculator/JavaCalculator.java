@@ -411,7 +411,10 @@ public class JavaCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEqualsActionPerformed
 
     private void btnCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommaActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnComma.getText());
+        if (!txtDisplay.getText().contains(".")) {
+            txtDisplay.setText(txtDisplay.getText() + btnComma.getText());
+        }
+        
         
     }//GEN-LAST:event_btnCommaActionPerformed
 
@@ -460,9 +463,6 @@ public class JavaCalculator extends javax.swing.JFrame {
             txtDisplay.setText(txtDisplay.getText().substring(0, txtDisplay.getText().length() - 1));
 
         }
-        else {
-            JOptionPane.showMessageDialog(null, "There is nothing to delete.", "Warning!", JOptionPane.WARNING_MESSAGE);
-        }
     }//GEN-LAST:event_btnDelActionPerformed
 
     private void btnPARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPARActionPerformed
@@ -470,14 +470,15 @@ public class JavaCalculator extends javax.swing.JFrame {
         // "(..)" Selecting process.
         if (txtDisplay.getText().length() == 0){  // "(" If textbox is blank.
             txtDisplay.setText(txtDisplay.getText() + "(");
-        }
-        else if ("(".equals(txtDisplay.getText().substring(txtDisplay.getText().length() - 1))){    // If last char in textbox is (.
-            txtDisplay.setText(txtDisplay.getText() + "(");
             
             // Adds * if there is no other operator.
             if ( opDisplay.getText().length() != 0 && opDisplay.getText().substring(opDisplay.getText().length() - 1).equals(")")) { 
                 opDisplay.setText(opDisplay.getText() + "*");
             }
+        }
+        else if ("(".equals(txtDisplay.getText().substring(txtDisplay.getText().length() - 1))){    // If last char in textbox is (.
+            txtDisplay.setText(txtDisplay.getText() + "(");
+            
         }
         
         // CountSchar(arg1, arg2) Counts number of arg2's in arg1.
@@ -489,10 +490,8 @@ public class JavaCalculator extends javax.swing.JFrame {
             txtDisplay.setText("");
             
         }
-        // Sends error message if no "(..)" fits.
-        else {
-            JOptionPane.showMessageDialog(null, "You cant place any (..) here.", "Warning!", JOptionPane.WARNING_MESSAGE);
-        }
+        
+        
     }//GEN-LAST:event_btnPARActionPerformed
 
     /**
