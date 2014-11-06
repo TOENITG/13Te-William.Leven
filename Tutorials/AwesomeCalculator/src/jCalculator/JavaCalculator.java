@@ -13,8 +13,10 @@ import javax.swing.JOptionPane;
  */
 public class JavaCalculator extends javax.swing.JFrame {
 
-    // variables
+    // variables and objects
     Calculate calc = new Calculate();
+    
+    
     /**
      * Creates new form JavaCalculator
      */
@@ -356,43 +358,43 @@ public class JavaCalculator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOneActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnOne.getText());
+        addtotxt(btnOne.getText());
     }//GEN-LAST:event_btnOneActionPerformed
 
     private void btnTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTwoActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnTwo.getText());
+        addtotxt(btnTwo.getText());
     }//GEN-LAST:event_btnTwoActionPerformed
 
     private void btnThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThreeActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnThree.getText());
+        addtotxt(btnThree.getText());
     }//GEN-LAST:event_btnThreeActionPerformed
 
     private void btnFourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFourActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnFour.getText());
+        addtotxt(btnFour.getText());
     }//GEN-LAST:event_btnFourActionPerformed
 
     private void btnFiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiveActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnFive.getText());
+        addtotxt(btnFive.getText());
     }//GEN-LAST:event_btnFiveActionPerformed
 
     private void btnSixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSixActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnSix.getText());
+        addtotxt(btnSix.getText());
     }//GEN-LAST:event_btnSixActionPerformed
 
     private void btnSevenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSevenActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnSeven.getText());
+        addtotxt(btnSeven.getText());
     }//GEN-LAST:event_btnSevenActionPerformed
 
     private void btnEightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEightActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnEight.getText());
+        addtotxt(btnEight.getText());
     }//GEN-LAST:event_btnEightActionPerformed
 
     private void btnNineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNineActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnNine.getText());
+        addtotxt(btnNine.getText());
     }//GEN-LAST:event_btnNineActionPerformed
 
     private void btnZeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZeroActionPerformed
-        txtDisplay.setText(txtDisplay.getText() + btnZero.getText());
+        addtotxt(btnZero.getText());
     }//GEN-LAST:event_btnZeroActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
@@ -496,10 +498,16 @@ public class JavaCalculator extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnPARActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
+    
+    private void addtotxt(String input) {
+        if (txtDisplay.getText().equals("0")){
+            txtDisplay.setText(txtDisplay.getText() + btnComma.getText() + input);
+        }
+        else {
+            txtDisplay.setText(txtDisplay.getText() + input);
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -530,6 +538,7 @@ public class JavaCalculator extends javax.swing.JFrame {
                 new JavaCalculator().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

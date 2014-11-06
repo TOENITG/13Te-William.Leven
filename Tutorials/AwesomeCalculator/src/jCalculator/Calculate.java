@@ -13,8 +13,16 @@ public class Calculate {
         
         // Solves (..)
         while (input.contains("(")) {
+            
             int pos1 = input.lastIndexOf('(');
             int pos2 = input.indexOf(')', pos1);
+            input = input.replace(input.substring(pos1, pos2), Calculate.(input.substring(pos1 + 1, pos2 - 1)));
+            
+        }
+        
+        while (input.contains("*")) {
+            int x = input.indexOf('*');
+            
         }
         return input;
     }
