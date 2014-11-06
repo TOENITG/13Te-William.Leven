@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class JavaCalculator extends javax.swing.JFrame {
 
     // variables
-    
+    Calculate calc = new Calculate();
     /**
      * Creates new form JavaCalculator
      */
@@ -407,7 +407,8 @@ public class JavaCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPlusActionPerformed
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
-        //alot
+        
+        
     }//GEN-LAST:event_btnEqualsActionPerformed
 
     private void btnCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommaActionPerformed
@@ -481,10 +482,12 @@ public class JavaCalculator extends javax.swing.JFrame {
             
         }
         
-        // CountSchar(arg1, arg2) Counts number of arg2's in arg1.
+        
+        
+        // calc.countSchar(arg1, arg2) Counts number of arg2's in arg1.
         // ")" If thers less )'s than ('s.
-        else if (countSchar(txtDisplay.getText() , ")".charAt(0)) + countSchar(opDisplay.getText() , ")".charAt(0)) <
-                 countSchar(txtDisplay.getText() , "(".charAt(0)) + countSchar(opDisplay.getText() , "(".charAt(0))) {
+        else if (calc.countSchar(txtDisplay.getText() , ")".charAt(0)) + calc.countSchar(opDisplay.getText() , ")".charAt(0)) <
+                 calc.countSchar(txtDisplay.getText() , "(".charAt(0)) + calc.countSchar(opDisplay.getText() , "(".charAt(0))) {
             
             opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + ")");
             txtDisplay.setText("");
@@ -555,13 +558,5 @@ public class JavaCalculator extends javax.swing.JFrame {
     private javax.swing.JTextField txtDisplay;
     // End of variables declaration//GEN-END:variables
 
-    private int countSchar(String text, char Schar) {
-        int temp = 0;
-        for (int i = 0; i < text.length(); i++){
-            if (text.charAt(i) == Schar){
-                temp++;
-            }
-        }
-        return temp;
-    }
+
 }
