@@ -409,7 +409,9 @@ public class JavaCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPlusActionPerformed
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
-        
+        opDisplay.setText(opDisplay.getText() + txtDisplay.getText());
+        txtDisplay.setText("");
+        txtDisplay.setText(calc.all(opDisplay.getText()));
         
     }//GEN-LAST:event_btnEqualsActionPerformed
 
