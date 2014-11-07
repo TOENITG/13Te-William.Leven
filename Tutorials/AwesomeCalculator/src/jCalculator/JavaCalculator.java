@@ -16,6 +16,8 @@ public class JavaCalculator extends javax.swing.JFrame {
     // variables and objects
     Calculate calc = new Calculate();
     String true_ops;
+    boolean negative_number = false;
+    boolean newly_calculated = false;
     
     
     /**
@@ -401,44 +403,70 @@ public class JavaCalculator extends javax.swing.JFrame {
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         txtDisplay.setText("");
         opDisplay.setText("");
+        newly_calculated = false;
+        true_ops = "";
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusActionPerformed
         opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnPlus.getText());
+        true_ops = true_ops + txtDisplay.getText() + btnPlus.getText();
         txtDisplay.setText("");
 
     }//GEN-LAST:event_btnPlusActionPerformed
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
         opDisplay.setText(opDisplay.getText() + txtDisplay.getText());
-        
+        true_ops = true_ops + txtDisplay.getText();
         txtDisplay.setText("");
-        txtDisplay.setText(calc.all(opDisplay.getText()));
+        txtDisplay.setText(calc.all(true_ops));
+        newly_calculated = true;
         
     }//GEN-LAST:event_btnEqualsActionPerformed
 
     private void btnCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommaActionPerformed
         if (!txtDisplay.getText().contains(".")) {
+            if (txtDisplay.getText().equals("")){
+                addtotxt(btnZero.getText());
+            }
             txtDisplay.setText(txtDisplay.getText() + btnComma.getText());
+            
         }
+        
         
         
     }//GEN-LAST:event_btnCommaActionPerformed
 
     private void btnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtractActionPerformed
-        opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnSubtract.getText());
+        
+        if (true_ops.substring(true_ops.length() - 1).equals("*") ||
+            true_ops.substring(true_ops.length() - 1).equals("/") ||
+            true_ops.substring(true_ops.length() - 1).equals("-") ||
+            true_ops.substring(true_ops.length() - 1).equals("+") ||
+            true_ops.substring(true_ops.length() - 1).equals("(")) {
+            
+            true_ops = true_ops + txtDisplay.getText() + "(0-";
+            opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + "(-");
+            negative_number = true;
+        }
+        else {
+            true_ops = true_ops + txtDisplay.getText() + btnSubtract.getText();
+            opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnSubtract.getText());
+        }
+        
         txtDisplay.setText("");
 
     }//GEN-LAST:event_btnSubtractActionPerformed
 
     private void btnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplyActionPerformed
         opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnMultiply.getText());
+        true_ops = true_ops + txtDisplay.getText() + btnMultiply.getText();
         txtDisplay.setText("");
 
     }//GEN-LAST:event_btnMultiplyActionPerformed
 
     private void btnDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivideActionPerformed
         opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnDivide.getText());
+        true_ops = true_ops + txtDisplay.getText() + btnDivide.getText();
         txtDisplay.setText("");
     }//GEN-LAST:event_btnDivideActionPerformed
 
