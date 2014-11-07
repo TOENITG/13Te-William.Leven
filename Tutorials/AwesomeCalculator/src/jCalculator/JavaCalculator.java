@@ -1,21 +1,15 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * See licence file.
  */
 package jCalculator;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author william
- */
 public class JavaCalculator extends javax.swing.JFrame {
 
     // variables and objects
     Calculate calc = new Calculate();
-    String true_ops;
+    boolean n_c = false;
     
     
     /**
@@ -401,17 +395,24 @@ public class JavaCalculator extends javax.swing.JFrame {
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         txtDisplay.setText("");
         opDisplay.setText("");
+        n_c = false;
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusActionPerformed
-        opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnPlus.getText());
-        txtDisplay.setText("");
-
+        if (n_c) {
+            opDisplay.setText(txtDisplay.getText() + btnPlus.getText());
+            txtDisplay.setText("");
+            n_c = false;
+        }
+        else {
+            opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnPlus.getText());
+            txtDisplay.setText("");
+        }
     }//GEN-LAST:event_btnPlusActionPerformed
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
         opDisplay.setText(opDisplay.getText() + txtDisplay.getText());
-        
+        n_c = true;
         txtDisplay.setText("");
         txtDisplay.setText(calc.all(opDisplay.getText()));
         
@@ -426,80 +427,103 @@ public class JavaCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCommaActionPerformed
 
     private void btnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtractActionPerformed
-        opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnSubtract.getText());
-        txtDisplay.setText("");
+        if (n_c) {
+            opDisplay.setText(txtDisplay.getText() + btnSubtract.getText());
+            txtDisplay.setText("");
+            n_c = false;
+        }
+        else {
+            opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnSubtract.getText());
+            txtDisplay.setText("");
+        }
 
     }//GEN-LAST:event_btnSubtractActionPerformed
 
     private void btnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplyActionPerformed
-        opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnMultiply.getText());
-        txtDisplay.setText("");
-
+        if (n_c) {
+            opDisplay.setText(txtDisplay.getText() + btnMultiply.getText());
+            txtDisplay.setText("");
+            n_c = false;
+        }
+        else {
+            opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnMultiply.getText());
+            txtDisplay.setText("");
+        }
     }//GEN-LAST:event_btnMultiplyActionPerformed
 
     private void btnDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivideActionPerformed
-        opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnDivide.getText());
-        txtDisplay.setText("");
+        if (n_c) {
+            opDisplay.setText(txtDisplay.getText() + btnDivide.getText());
+            txtDisplay.setText("");
+            n_c = false;
+        }
+        else {
+            opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + btnDivide.getText());
+            txtDisplay.setText("");
+        }
     }//GEN-LAST:event_btnDivideActionPerformed
 
     private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelActionPerformed
         
-        // checks from wich field to remove last cahr.
-        if (txtDisplay.getText().length() == 0 && opDisplay.getText().length() != 0) { 
-            opDisplay.setText(opDisplay.getText().substring(0, opDisplay.getText().length() - 1));
-            
-            boolean end = false;
-            for (int i = 1; i < opDisplay.getText().length() && end == false; i++){ //loop untill all chars have been looped or loop is breaked
-                
-                // checks for +,-,*,/,), so that i knows what text to move
-                if (opDisplay.getText().substring(opDisplay.getText().length() - i).contains("+") || 
-                    opDisplay.getText().substring(opDisplay.getText().length() - i).contains("-") || 
-                    opDisplay.getText().substring(opDisplay.getText().length() - i).contains("*") || 
-                    opDisplay.getText().substring(opDisplay.getText().length() - i).contains("/") || 
-                    opDisplay.getText().substring(opDisplay.getText().length() - i).contains(")")) {
-                    
-                    txtDisplay.setText(opDisplay.getText().substring(opDisplay.getText().length() - i)); // moves down text from op to txt
-                    
-                    opDisplay.setText(opDisplay.getText().substring( 0, opDisplay.getText().length() - i)); // removes the moved text from op
-                    end = true; // breaks loop
-                }
-                    
-            }
-        }
-        else if (txtDisplay.getText().length() != 0) {
-            txtDisplay.setText(txtDisplay.getText().substring(0, txtDisplay.getText().length() - 1));
+        if (!n_c) {
+            // checks from wich field to remove last cahr.
+            if (txtDisplay.getText().length() == 0 && opDisplay.getText().length() != 0) { 
+                opDisplay.setText(opDisplay.getText().substring(0, opDisplay.getText().length() - 1));
 
+                boolean end = false;
+                for (int i = 1; i < opDisplay.getText().length() && end == false; i++){ //loop untill all chars have been looped or loop is breaked
+
+                    // checks for +,-,*,/,), so that i knows what text to move
+                    if (opDisplay.getText().substring(opDisplay.getText().length() - i).contains("+") || 
+                        opDisplay.getText().substring(opDisplay.getText().length() - i).contains("-") || 
+                        opDisplay.getText().substring(opDisplay.getText().length() - i).contains("*") || 
+                        opDisplay.getText().substring(opDisplay.getText().length() - i).contains("/") || 
+                        opDisplay.getText().substring(opDisplay.getText().length() - i).contains(")")) {
+
+                        txtDisplay.setText(opDisplay.getText().substring(opDisplay.getText().length() - i)); // moves down text from op to txt
+
+                        opDisplay.setText(opDisplay.getText().substring( 0, opDisplay.getText().length() - i)); // removes the moved text from op
+                        end = true; // breaks loop
+                    }
+
+                }
+            }
+            else if (txtDisplay.getText().length() != 0) {
+                txtDisplay.setText(txtDisplay.getText().substring(0, txtDisplay.getText().length() - 1));
+
+            }
         }
     }//GEN-LAST:event_btnDelActionPerformed
 
     private void btnPARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPARActionPerformed
         
-        // "(..)" Selecting process.
-        if (txtDisplay.getText().length() == 0){  // "(" If textbox is blank.
-            txtDisplay.setText(txtDisplay.getText() + "(");
-            
-            // Adds * if there is no other operator.
-            if ( opDisplay.getText().length() != 0 && opDisplay.getText().substring(opDisplay.getText().length() - 1).equals(")")) { 
-                opDisplay.setText(opDisplay.getText() + "*");
+        if (n_c) {
+            // "(..)" Selecting process.
+            if (txtDisplay.getText().length() == 0){  // "(" If textbox is blank.
+                txtDisplay.setText(txtDisplay.getText() + "(");
+
+                // Adds * if there is no other operator.
+                if ( opDisplay.getText().length() != 0 && opDisplay.getText().substring(opDisplay.getText().length() - 1).equals(")")) { 
+                    opDisplay.setText(opDisplay.getText() + "*");
+                }
+            }
+            else if ("(".equals(txtDisplay.getText().substring(txtDisplay.getText().length() - 1))){    // If last char in textbox is (.
+                txtDisplay.setText(txtDisplay.getText() + "(");
+
+            }
+
+
+
+            // calc.countSchar(arg1, arg2) Counts number of arg2's in arg1.
+            // ")" If thers less )'s than ('s.
+            else if (calc.countSchar(txtDisplay.getText() , ")".charAt(0)) + calc.countSchar(opDisplay.getText() , ")".charAt(0)) <
+                     calc.countSchar(txtDisplay.getText() , "(".charAt(0)) + calc.countSchar(opDisplay.getText() , "(".charAt(0))) {
+
+                opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + ")");
+                txtDisplay.setText("");
+
             }
         }
-        else if ("(".equals(txtDisplay.getText().substring(txtDisplay.getText().length() - 1))){    // If last char in textbox is (.
-            txtDisplay.setText(txtDisplay.getText() + "(");
-            
-        }
-        
-        
-        
-        // calc.countSchar(arg1, arg2) Counts number of arg2's in arg1.
-        // ")" If thers less )'s than ('s.
-        else if (calc.countSchar(txtDisplay.getText() , ")".charAt(0)) + calc.countSchar(opDisplay.getText() , ")".charAt(0)) <
-                 calc.countSchar(txtDisplay.getText() , "(".charAt(0)) + calc.countSchar(opDisplay.getText() , "(".charAt(0))) {
-            
-            opDisplay.setText(opDisplay.getText() + txtDisplay.getText() + ")");
-            txtDisplay.setText("");
-            
-        }
-        
         
     }//GEN-LAST:event_btnPARActionPerformed
     

@@ -101,17 +101,20 @@ public class Calculate {
     // Solve all arg2 operations in arg1.
     public String operate(String input, char operator){
         
-        // makes sure every operator is solved
-        while (input.contains(String.valueOf(operator))) {
+        // Fixes negative numbers.
+        input = input.replaceAll("--", "+");
+        
+        // Makes sure every operator is solved.
+        while (input.substring(1).contains(String.valueOf(operator))) {
             
-            // Grabbing possition of operator
-            int x = input.indexOf(operator);
+            // Grabbing possition of operator.
+            int x = input.indexOf(operator, 1);
             
             // Grabbing possible values for end.
-            int[] p_end = {input.indexOf('*', x +1) - 1,
-                           input.indexOf('/', x +1) - 1,
-                           input.indexOf('-', x +1) - 1,
-                           input.indexOf('+', x +1) - 1,
+            int[] p_end = {input.indexOf('*', x +2) - 1,
+                           input.indexOf('/', x +2) - 1,
+                           input.indexOf('-', x +2) - 1,
+                           input.indexOf('+', x +2) - 1,
                            input.length() - 1};
             // Grabbing lowest value which is higher or equal to 0.
             int end = lowest(p_end, false);
@@ -137,7 +140,9 @@ public class Calculate {
                 case '+': answer = Double.parseDouble(input.substring(start, x )) +
                     Double.parseDouble(input.substring(x + 1, end + 1));
                     break;
-                case '-': answer = Double.parseDouble(input.substring(start, x )) -
+                case '-': 
+                    
+                    answer = Double.parseDouble(input.substring(start, x )) -
                     Double.parseDouble(input.substring(x + 1, end + 1));
                     break;
             }
