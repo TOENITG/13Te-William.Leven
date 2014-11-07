@@ -15,6 +15,7 @@ public class JavaCalculator extends javax.swing.JFrame {
 
     // variables and objects
     Calculate calc = new Calculate();
+    String true_ops;
     
     
     /**
@@ -410,6 +411,7 @@ public class JavaCalculator extends javax.swing.JFrame {
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
         opDisplay.setText(opDisplay.getText() + txtDisplay.getText());
+        
         txtDisplay.setText("");
         txtDisplay.setText(calc.all(opDisplay.getText()));
         
