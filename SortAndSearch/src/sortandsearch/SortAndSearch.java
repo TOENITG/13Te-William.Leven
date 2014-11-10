@@ -90,8 +90,8 @@ public class SortAndSearch {
             us[i] = us[li];
             us[li] = temp;
             
-            temp = us[us.length-i-1];
-            us[us.length-i-1] = us[hi];
+            temp = us[us.length-1-i];
+            us[us.length-1-i] = us[hi];
             us[hi] = temp;
         }
         return us;
@@ -107,9 +107,9 @@ public class SortAndSearch {
         Calendar clock11 = Calendar.getInstance();  
         long time11 = clock11.getTimeInMillis();
         
-        //myArray = mySelectionSort(myArray);
+        myArray = mySelectionSort(myArray);
         //myArray = myBubleSort(myArray);
-        myArray = myImprovedSort(myArray);
+        //myArray = myImprovedSort(myArray);
         
         Calendar clock12 = Calendar.getInstance();  
         long time12 = clock12.getTimeInMillis();
