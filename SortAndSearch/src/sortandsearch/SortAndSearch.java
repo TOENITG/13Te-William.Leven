@@ -6,8 +6,7 @@
 
 package sortandsearch;
 
-import java.util.Arrays;
-
+import java.util.*; 
 /**
  * @author Willaim Leven "Gurgy"
  * @teacher ToEn ITG
@@ -53,15 +52,72 @@ public class SortAndSearch {
         return us;
     }
 
+    private static int[] mySelectionSort(int[] us) {
+        // i - solving
+        // n - current
+        // li - index of lowest
+        int li = 0;
+        for (int i = 0; i < us.length -1; i++){
+            for (int n = i; n < us.length; n++){
+                    if( n == 0 || us[n] < us[li]){
+                        li = n;
+                }
+            }
+            int temp = us[i];
+            us[i] = us[li];
+            us[li] = temp;
+        }
+        return us;
+    }
+    
+    private static int[] myImprovedSort(int[] us) {
+        // i - solving
+        // n - current
+        // li - index of lowest
+        // hi - index of highest
+        int li = 0;
+        int hi = 0;
+        for (int i = 0; i < us.length - 1; i++){
+            for (int n = i; n < us.length - i; n++){
+                    if( n == 0 || us[n] < us[li]){
+                        li = n;
+                    if( n == 0 || us[n] > us[hi]){
+                        hi = n;
+                    }
+                }
+            }
+            int temp = us[i];
+            us[i] = us[li];
+            us[li] = temp;
+            
+            temp = us[us.length-i-1];
+            us[us.length-i-1] = us[hi];
+            us[hi] = temp;
+        }
+        return us;
+    }
+    
+    
     public static void main(String[] args) {
         
         int[] myArray = randomArray(100);
         
         printArray(myArray);
         
-        myArray = myBubleSort(myArray);
+        Calendar clock11 = Calendar.getInstance();  
+        long time11 = clock11.getTimeInMillis();
+        
+        //myArray = mySelectionSort(myArray);
+        //myArray = myBubleSort(myArray);
+        myArray = myImprovedSort(myArray);
+        
+        Calendar clock12 = Calendar.getInstance();  
+        long time12 = clock12.getTimeInMillis();
         
         printArray(myArray);
+        
+        System.out.println("");
+        System.out.println("time1 " + (time12-time11) + "ms"); 
         
     }
 
