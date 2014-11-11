@@ -71,45 +71,102 @@ public class SortAndSearch {
     }
     
     private static int[] myImprovedSort(int[] us) {
-        // i - solving
+        // i & length-1-i - solving
         // n - current
         // li - index of lowest
         // hi - index of highest
-        int li = 0;
-        int hi = 0;
-        for (int i = 0; i < us.length - 1; i++){
-            for (int n = i; n < us.length - i; n++){
-                    if( n == 0 || us[n] < us[li]){
-                        li = n;
-                    if( n == 0 || us[n] > us[hi]){
-                        hi = n;
-                    }
+        int li;
+        int hi;
+        for (int i = 0; i < (us.length)/2+1; i++){
+            hi = i;
+            li = i;
+            for (int n = i; n < us.length-i; n++){
+                if(us[n] < us[li]){
+                    li = n;
                 }
+                if(us[n] > us[hi]){
+                    hi = n;
+                }
+                
             }
-            int temp = us[i];
-            us[i] = us[li];
-            us[li] = temp;
+            if ( hi != li){
+                
+                int temp = us[i];
+                us[i] = us[li];
+                us[li] = temp;
+                if (hi == i){
+                    hi = li;
+                }
+                temp = us[us.length-1-i];
+                us[us.length-1-i] = us[hi];
+                us[hi] = temp;
+            }
             
-            temp = us[us.length-1-i];
-            us[us.length-1-i] = us[hi];
-            us[hi] = temp;
         }
         return us;
     }
     
+    private static int[] splitSortS(int[] us){
+        int sum = 0;
+        for (int i = 0; i < us.length; i++){
+            sum = sum + us[i];
+        }
+        sum = sum/2;
+        //int[] us1 = dynamic array somehow
+        //int[] us1 = dynamic array somehow
+        for (int i=0; i < us.length; i++){
+            if (us[i] < sum){
+                //add us[i] to us1
+            }
+            else{
+                // add us[i] to us2
+            }
+        }
+                
+        return us;
+    }// not working atm
+    
+    private static int[] merge(int[] s1, int[] s2){
+        int s[] = new int[s1.length + s2.length];
+        int n1 = 0;
+        int n2 = 0;
+        for (int i = 0; i < s.length; i++){
+            if (n1 <= s1.length && n2 <= s2.length){
+                if (s1[n1] < s2[n2]){
+                    s[i] = s1[n1];
+                    n1++;
+                }
+                else {
+                    s[i] = s2[n2];
+                    n2++;
+                }
+            }
+            else if (n1 <= s1.length){
+                s[i] = s1[n1];
+                n1++;
+            }
+            else{
+                s[i] = s2[n2];
+                n2++;
+            }
+            
+        }
+        return s;
+    }
     
     public static void main(String[] args) {
         
-        int[] myArray = randomArray(100);
-        
+        int[] myArray = randomArray(100000);
         printArray(myArray);
         
         Calendar clock11 = Calendar.getInstance();  
         long time11 = clock11.getTimeInMillis();
         
-        myArray = mySelectionSort(myArray);
-        //myArray = myBubleSort(myArray);
-        //myArray = myImprovedSort(myArray);
+//        myArray = mySelectionSort(myArray);
+//        myArray = myBubleSort(myArray);
+        myArray = myImprovedSort(myArray);
+//        myArray = splitSortS(myArray);
+//        Arrays.sort(myArray);
         
         Calendar clock12 = Calendar.getInstance();  
         long time12 = clock12.getTimeInMillis();
