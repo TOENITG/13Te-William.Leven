@@ -14,6 +14,7 @@ public class Valja_i_java {
         boolean quit = false; 
         Object[] programs = {"Frågesport!", "Gissa talet!", "Uppslag!", "Quit"}; // Button texts for first dialogue.
         
+        
         // Loop untill user decides to quit.
         do{
             // Grab input from user.
